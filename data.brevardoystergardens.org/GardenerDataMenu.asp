@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Brevard Oyster Garden Main</title>
 <link href="GardenerDataMenu.css" rel="stylesheet" type="text/css" />
 </head>
@@ -66,9 +66,12 @@
 			</div>
 		</div>
 		
-		<div class="container" style="float: right; display: inline-block; width: calc(100% - 430px); border: none; overflow: hidden">
-			<iframe src="gardenerOverview.aspx?siteId=<%=siteId%>" style="height: 450px; width: calc(100% - 5px); border: none"></iframe>
-		</div>
+		<div class="container" style="float: right; display: inline-block; width: calc(100% - 430px); border: none; overflow: hidden; position: relative; padding-bottom: 35px">
+			<iframe id="observation_frame" name="observation_frame" src="gardenerOverview.aspx?siteId=<%=siteId%>" style="height: 450px; width: calc(100% - 5px); border: none"></iframe>
+                        <a id="PreviousLink" style="left: 3px; bottom: 3px; position: absolute; background-color: green; border-radius: 4px; color: white; padding: 5px; text-decoration: none" href="" onClick="return setPreviousLink()"  target="observation_frame">Previous Record</a>
+                        <a id="NextLink" style="left: 150px; bottom: 3px; position: absolute; background-color: green; border-radius: 4px; color: white; padding: 5px; text-decoration: none" href="" onClick="return setNextLink()"  target="observation_frame">Next Record</a>
+                        <a id="DeleteLink" style="right: 3px; bottom: 3px; position: absolute; background-color: green; border-radius: 4px; color: white; padding: 5px; text-decoration: none"  href="" onClick="deleteRecord();  return confirm('Are you sure you want to delete this observation?'); " target="observation_frame">Delete Record</a>
+                </div>
 		<div class="container" style="float: right; display: inline-block; width: calc(100% - 430px); border: none; overflow: hidden">
 			<iframe src="chartsOysterWeight.aspx?siteId=<%=siteId%>" style="height: 450px; width: calc(100% - 5px); border: none"></iframe>
 		</div>
@@ -79,5 +82,62 @@
 			<iframe src="chartsTimeSpent.aspx?siteId=<%=siteId%>" style="height: 450px; width: calc(100% - 5px); border: none"></iframe>
 		</div>
 	</div>
+        <script>
+             function setPreviousLink(){
+
+                  var iframe = document.getElementById("observation_frame");
+                  var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                  var startOfObs = innerDoc.getElementById("StartOfObservation").innerText;
+                  var endOfObs = innerDoc.getElementById("EndOfObservation").innerText;
+                  
+                  if ((startOfObs === 'True') || (endOfObs === 'True')) {
+                       var url = "gardenerOverview.aspx?siteId=<%=siteId%>"
+                       document.getElementById("PreviousLink").setAttribute("href", url);
+                       return true;
+                  }
+
+                  var url = "gardenerOverview.aspx?siteId=<%=siteId%>&observationId=" + innerDoc.getElementById("observationIdForPage").innerText + "&action=Previous"
+                  document.getElementById("PreviousLink").setAttribute("href", url);
+                  return true;
+                  
+             }
+
+             function setNextLink(){
+                  var iframe = document.getElementById("observation_frame");
+                  var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                  var startOfObs = innerDoc.getElementById("StartOfObservation").innerText;
+                  var endOfObs = innerDoc.getElementById("EndOfObservation").innerText;
+                  
+                  if ((startOfObs === 'True') || (endOfObs === 'True')) {
+                       var url = "gardenerOverview.aspx?siteId=<%=siteId%>"
+                       document.getElementById("NextLink").setAttribute("href", url);
+                       return true;
+                  }
+
+                  var url = "gardenerOverview.aspx?siteId=<%=siteId%>&observationId=" + innerDoc.getElementById("observationIdForPage").innerText + "&action=Next"
+                  document.getElementById("NextLink").setAttribute("href", url);
+                  return true;
+                  
+             }
+
+            function deleteRecord(){
+                  var iframe = document.getElementById("observation_frame");
+                  var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                  var startOfObs = innerDoc.getElementById("StartOfObservation").innerText;
+                  var endOfObs = innerDoc.getElementById("EndOfObservation").innerText;
+                  
+                  if ((startOfObs === 'True') || (endOfObs === 'True')) {
+                       var url = "gardenerOverview.aspx?siteId=<%=siteId%>"
+                       document.getElementById("DeleteLink").setAttribute("href", url);
+                       return true;
+                  }
+
+                  var url = "gardenerOverview.aspx?siteId=<%=siteId%>&observationId=" + innerDoc.getElementById("observationIdForPage").innerText + "&action=Delete"
+                  document.getElementById("DeleteLink").setAttribute("href", url);
+                  return true;
+                  
+             }
+
+       </script>
 </body>
 </html>

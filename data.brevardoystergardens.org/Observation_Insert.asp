@@ -78,7 +78,7 @@ If (CStr(Request("MM_insert")) = "form1") Then
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param13", 5, 1, -1, MM_IIF(Request.Form("BlueCrab"), 1, 0)) ' adDouble
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param14", 5, 1, -1, MM_IIF(Request.Form("GrassShrimp"), 1, 0)) ' adDouble
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param15", 5, 1, -1, MM_IIF(Request.Form("HermitCrab"), 1, 0)) ' adDouble
-    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param16", 5, 1, -1, MM_IIF(Request.Form("LionFish"), 1, 0)) ' adDouble 
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param16", 5, 1, -1, MM_IIF(Request.Form("LionFish"), 1, 0)) ' adDouble
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param17", 5, 1, -1, MM_IIF(Request.Form("MudCrab"), 1, 0)) ' adDouble
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param18", 5, 1, -1, MM_IIF(Request.Form("PinkShrimp"), 1, 0)) ' adDouble
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param19", 5, 1, -1, MM_IIF(Request.Form("RibbedMussel"), 1, 0)) ' adDouble
@@ -129,8 +129,15 @@ rsObservations_numRows = 0
 <form action="<%=MM_editAction%>" method="post" name="form1" id="form1">
   <table align="center">
     <tr valign="baseline">
+      <td nowrap="nowrap" align="left">&nbsp;</td>
+      <td><input type="submit" value="Previous record" /></td>
+      <td nowrap="nowrap" align="right">&nbsp;</td>
+      <td><input type="submit" value="Next record" /></td> 
+      <td nowrap="nowrap" align="right">&nbsp;</td> 
+    </tr>
+    <tr valign="baseline">
       <td nowrap="nowrap" align="right">DateOfObservation:</td>
-      <td><input type="text" name="DateOfObservation" value= "" size="32" /></td>
+      <td><input type="text" name="DateOfObservation" value=<%=MM_Today%> size="32" /></td>
     </tr>
     <tr valign="baseline">
       <td nowrap="nowrap" align="right">WtBeforeCleaningRed:</td>
@@ -246,13 +253,11 @@ rsObservations_numRows = 0
     </tr>
     <tr valign="baseline">
       <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Insert record" /></td>
+      <td><input type="submit" value="Insert record" /></td>         
     </tr>
   </table>
   <input type="hidden" name="MM_insert" value="form1" />
 </form>
-</table>
-%>
 <p>&nbsp;</p>
 <%
 rsObservations.Close()
