@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+.body  {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #009900;
+}
+
+.container {
+	background: #EBFAEB; 
+    border-radius: 7px; 
+	border: 1px solid grey;
+	text-align: left;
+	margin: 3px;
+	padding: 3px;
+} 
+
+.header { 
+	background: #EBFAEB; 
+    border-radius: 7px; 
+	margin: 3px;
+	padding: 3px;
+	width: calc(100% - 14px);
+	height: 50px,
+ 	vertical-align: middle; 
+	text-align: center;
+} 
+
+

@@ -1,0 +1,168 @@
+body
+{
+	background: url(img/bg_main.jpg);
+	background-repeat:repeat-x;
+	background-color: #a8956a;
+	margin: 0px;
+	padding: 0px;
+}
+
+#container {
+	width: 940px;
+	margin: 0 auto;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	background-image: url(img/home_explore.png);
+	background-repeat: repeat-y;
+}
+#header {
+	padding-top: 0;
+	padding-right: 0px;
+	padding-bottom: 0;
+	padding-left: 0px;
+}
+#header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+#mainContent {
+	padding-right: 30px;
+	padding-left: 30px;
+	margin: 0px;
+}
+#footer {
+	padding: 0 10px;
+}
+#footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+
+#menu {
+	background-image: url(img/home_explore_menu.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 92px;
+	width: 940px;
+}
+
+/* GENERAL: Inherited and layout styles */
+
+#topbanner {
+	background-image: url(img/home_explore_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: top;
+	height: 200px;
+	width: 940px;
+}
+
+
+#add_FriendlyName {
+	width:100px;
+}
+
+#userpanel {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 12px;
+}
+
+#editregion	{
+	position:relative;
+	background-color: #FFFFFF;
+
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    margin: 10px auto 20px;
+    min-height: 600px;
+    padding: 15px;
+    width: 869px;
+}
+
+#editregion input.text, #editregion textarea {
+	font-size: 11px;
+	padding: 3px 5px;
+}
+
+#editregion input.text.large {
+	font-size: 14px;
+	width: 300px;
+}
+
+#editregion input.text.small {
+	width: 300px;
+}
+
+#editregion textarea.large {
+	height: 200px;
+	width: 400px;
+}
+
+#editregion textarea.small {
+	height: 100px;
+	width: 300px;
+}
+
+#menu2_admin {
+	background-color: #f6ac39;
+	height: 35px;
+	width: 899px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #107C40;
+}
+
+#menu2_admin a {
+	cursor:pointer;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#menu2_admin a:hover {
+	color: #007534;
+}
+
+.admin_link	{ cursor:pointer; color: #FFFFFF; text-decoration: none; }
+.admin_link:hover {	color: #007534; }	
+
+
+.admin_eventlist {
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #CCCCCC;
+	margin-bottom: 8px;
+	padding-bottom: 8px;
+}
+
+#editregion h1 {
+	color: #333;
+	font-size: 18px;
+	margin-top: 0;
+}
+
+/* Colors for alternating row background colors */
+#editregion table th, 
+#editregion table td {
+	padding: 8px 10px;
+} 
+#editregion table thead th {
+	background-color: #007840;
+    color: #FFFFFF;
+    text-align: left;
+}
+#editregion table tr.alt1 { background-color:#fafafa; }
+#editregion table tr.alt2 { background-color:#eee; }
+#editregion table tr .actions {
+	white-space: nowrap;
+    width: 70px;
+}
+#editregion table a {
+	color: #333;
+	text-decoration: underline;
+}
